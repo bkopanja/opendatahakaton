@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/opendatahakaton/ej_nabavke_web';
+$config['base_url']	= 'http://10.120.193.137/opendatahakaton/ej_nabavke_web';
 
 /*
 |--------------------------------------------------------------------------

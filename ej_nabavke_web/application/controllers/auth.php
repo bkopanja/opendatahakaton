@@ -68,7 +68,7 @@ class Auth extends CI_Controller
 						$this->form_validation->set_value('remember'),
 						$data['login_by_username'],
 						$data['login_by_email'])) {								// success
-					redirect(base_url());
+					redirect(base_url()."admin");
 
 				} else {
 					$errors = $this->tank_auth->get_error_message();

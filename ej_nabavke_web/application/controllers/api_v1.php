@@ -15,123 +15,97 @@ class api_v1 extends REST_Controller {
 
         $envelope = new stdClass;
         $envelope->user_id = $userId;
-        $envelope->info = "Copyright © 2015 EJ Nabavke";
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
 
-        /** @noinspection PhpParamsInspection */
         $this->response($envelope, 200);
     }
 
-    function places_list_get() {
-        $this->load->model('place');
-        $data = $this->place->get_places_list(true);
-        $this->response($data, 200);
-    }
+    function update_user_post() {
+        $this->load->model('korisnik');
 
-    function all_data_get() {
-        $this->load->model('place');
-        $this->load->model('parking_zone');
-        $this->load->model('area');
-        $this->load->model('change_set');
-        $include_geo = ($this->get('include_geo') == 1);
+        if(isset($this->_args["id"])) {
+            $userId = $this->_args["id"];
+        } else {
+            $envelope = new stdClass;
+            $envelope->error = "Missing user ID";
+            $envelope->info = "Copyright © 2015 Ej Nabavke";
 
-        $data = $this->place->get_places_list(true);
-
-        // Iterate over places
-        foreach ($data as $row_place) {
-            // Get parking zones for place
-            $parking_zones = $this->parking_zone->get_zones($row_place->place_id);
-            $row_place->parking_zones = $parking_zones;
-
-            // Get area polygones for place
-            if ($include_geo) {
-                $areas = $this->area->get_areas($row_place->place_id);
-                foreach ($areas as $row_area) {
-                    $row_area->points = $this->area->get_area_points($row_area->area_polygone_id);
-                }
-                $row_place->areas = $areas;
-            }
+            $this->response($envelope, 500);
         }
+
+        if(isset($this->_args["email"])) {
+            $email = $this->_args["email"];
+        } else {
+            $email = null;
+        }
+
+        if(isset($this->_args["name"])) {
+            $name = $this->_args["name"];
+        } else {
+            $name = null;
+        }
+
+        if(isset($this->_args["phone"])) {
+            $phone = $this->_args["phone"];
+        } else {
+            $phone = null;
+        }
+
+        $updated = $this->korisnik->updateUser($userId, $email, $name, $phone);
 
         $envelope = new stdClass;
-        $envelope->change_set_latest = $this->change_set->get_place_change_set_latest();
-        $envelope->info = "Copyright © 2013 Parking Manijak Team (parkingmanijak.com)";
-        $envelope->places = $data;
+        $envelope->user_updated = $updated;
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
 
-        /** @noinspection PhpParamsInspection */
         $this->response($envelope, 200);
     }
 
-    function place_data_get($id = -1) {
-    
-        if ($id == -1) {
-            $this->all_data_get();
-            exit(1);
-        }
+    function list_cities_post() {
+        $this->load->model('mesto');
 
-        $this->load->model('place');
-        $this->load->model('parking_zone');
-        $this->load->model('area');
-        $include_geo = ($this->get('include_geo') == 1);
+        $mesta = $this->mesto->getPlaces();
 
-        $data = $this->place->get_place($id);
+        $envelope = new stdClass;
+        $envelope->mesta = $mesta;
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
 
-        // Get parking zones for place
-        $parking_zones = $this->parking_zone->get_zones($data->place_id);
-        $data->parking_zones = $parking_zones;
-
-        // Get area polygones for place
-        if ($include_geo) {
-            $areas = $this->area->get_areas($data->place_id);
-            foreach ($areas as $row_area) {
-                $row_area->points = $this->area->get_area_points($row_area->area_polygone_id);
-            }
-            $data->areas = $areas;
-        }
-
-        $this->response($data, 200);
+        $this->response($envelope, 200);
     }
 
-    function change_set_latest_get() {
-        $this->load->model('change_set');
-        $data['change_set_latest'] = $this->change_set->get_place_change_set_latest();
-        $this->response($data, 200);
+    function list_muncipalities_post() {
+        $this->load->model('opstina');
+
+        $getMuncipalities = $this->opstina->getMuncipalities();
+
+        $envelope = new stdClass;
+        $envelope->opstine = $getMuncipalities;
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
+
+        $this->response($envelope, 200);
     }
 
-    function change_set_places_get() {
-        $this->load->model('change_set');
-        $data = $this->change_set->get_place_change_sets($this->get('from_change_set'), $this->get('to_change_set'));
-        $this->response($data, 200);
+    function list_purchase_types_post() {
+        $this->load->model('vrsta_postupka');
+
+        $purchaseTypes = $this->vrsta_postupka->getPurchaseTypes();
+
+        $envelope = new stdClass;
+        $envelope->vrste_nabavke = $purchaseTypes;
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
+
+        $this->response($envelope, 200);
     }
 
-    function place_from_geo_get() {
-        $this->load->model('place');
-        $data = $this->place->get_place_from_geo($this->get('lat'), $this->get('lon'));
-        if(!is_object($data))
-            $this->response(array("error"=>"No data"), 404);
-        else
-            /** @noinspection PhpParamsInspection */
-            $this->response($data, 200);
-    }
+    function list_categories_post() {
+        $this->load->model('kategorija');
 
-    function area_from_geo_get() {
-        $this->load->model('place');
-        $this->load->model('area');
-        $data = $this->place->get_place_from_geo($this->get('lat'), $this->get('lon'));
-        if(!is_object($data)) {
-            $this->response(array("error"=>"No data"), 404);
-            exit(1);
-        }
+        $categories = $this->kategorija->getCategories();
 
-        $data_area = $this->area->get_area_by_geolocation(
-            $this->get('lat'),
-            $this->get('lon'),
-            $data->place_id);
+        $envelope = new stdClass;
+        $envelope->kategorije = $categories;
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
 
-        if(!is_object($data_area))
-            $this->response(array("error"=>"No data"), 404);
-        else
-            /** @noinspection PhpParamsInspection */
-            $this->response($data_area, 200);
+        $this->response($envelope, 200);
     }
 
 }
