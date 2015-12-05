@@ -1,12 +1,16 @@
 package com.hakaton.tim.ejnabavke;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +31,9 @@ import org.jdeferred.Promise;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private Button btnLogin;
@@ -36,19 +43,35 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
+    private Context mAppContext;
+    public static final String PREFS_NAME = "ejnabavke";
+    private SharedPreferences pref;
+    private GoogleSignInAccount acct;
+    private String user="";
+    private String email="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pref = getSharedPreferences(PREFS_NAME,0);
+        user = pref.getString("user",user);
+        email = pref.getString("email",email);
+
+        if(!(user.isEmpty() || email.isEmpty())) {
+            Intent intent = new Intent(MainActivity.this, MestaActivity.class);
+            startActivity(intent);
+        }
+
+
+
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
-        signInButton.setScopes(gso.getScopeArray());
+        Button signInButton = (Button) findViewById(R.id.sign_in_button);
 
         findViewById(R.id.sign_in_button).setOnClickListener(new OnClickListener() {
             @Override
@@ -83,8 +106,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onConnected(Bundle bundle) {
 
-
-
     }
 
     @Override
@@ -111,26 +132,37 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
-            GoogleSignInAccount acct = result.getSignInAccount();
-
+            acct = result.getSignInAccount();
+            try {
+//                TelephonyManager tMgr = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+//                String mPhoneNumber = tMgr.getLine1Number();
+//                Toast.makeText(getApplicationContext(), mPhoneNumber, Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             RegisterUserAsyncTask registerUserAsyncTask = new RegisterUserAsyncTask(this, acct);
             Promise<JSONObject, Void, Void> promise = registerUserAsyncTask.getPromise();
             registerUserAsyncTask.execute();
+
+
 
             promise.done(new DoneCallback<JSONObject>() {
                 @Override
                 public void onDone(JSONObject result) {
                     try {
+                        user = pref.getString("user", acct.getDisplayName());
+                        email = pref.getString("name", acct.getEmail());
                         Toast.makeText(MainActivity.this, "User ID: " + result.getString("user_id"), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, MestaActivity.class);
+                        startActivity(intent);
+                        finish();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             });
 
-//            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-//            startActivity(intent);
-//            finish();
+
         }
     }
 
@@ -139,11 +171,22 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
-                        // [START_EXCLUDE]
-                      //  updateUI(false);
-                        // [END_EXCLUDE]
+
                     }
                 });
+    }
+
+    private void commitChanges()
+    {
+        SharedPreferences dms = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = dms.edit();
+        try {
+            editor.putString("user", acct.getDisplayName());
+            editor.putString("email", acct.getEmail());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        editor.commit();
     }
 
 
