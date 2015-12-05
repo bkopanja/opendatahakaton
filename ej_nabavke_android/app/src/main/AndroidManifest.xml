@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
-    <meta-data android:name="mestadb" android:value="mesta.db" />
-    <meta-data android:name="mestadbv" android:value="5" />
+    <meta-data android:name="AA_DB_NAME" android:value="ejnabavke.db" />
+    <meta-data android:name="AA_DB_VERSION" android:value="1" />
 
 
     <application
@@ -27,13 +27,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MestaActivity"
-            android:label="Ej Nabavke">
+            android:name=".FilterActivity"
+            android:label="Filtriranje">
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="Ej Nabavke">
-        </activity>
+        </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
     </application>
 

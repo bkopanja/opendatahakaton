@@ -2,7 +2,15 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
+        <!-- Title Text Color -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+
+        <!--line under selected tab -->
+        <item name="colorAccent">#FFFFFFFF</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:itemTextAppearance">@android:color/white</item>
     </style>
 
 </resources>

@@ -1,8 +1,7 @@
 <resources>
-    <string name="app_name">Ej nabavke</string>
+    <string name="app_name">Ej Nabavke</string>
     <string name="action_settings">Settings</string>
 
-        <string name="hello_world">Hello world!</string>
         <string name="app_id">535569339698</string>
 
         <string name="leaderboard_id" translatable="false">CgkIsqquk8sPEAIQAQ</string>
@@ -31,5 +30,6 @@
         <string name="play_services_error">Google Play services is not available.  This application will close.</string>
         <string name="close">Close</string>
     <string name="test123">dsadsasad</string>
+    <string name="filterSubTitle">Odaberite gradove i kategorije za javne\nnabavke koje želite da pratite</string>
 
 </resources>

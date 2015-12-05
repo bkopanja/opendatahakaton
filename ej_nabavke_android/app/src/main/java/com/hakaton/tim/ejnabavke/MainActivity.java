@@ -5,12 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +18,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
@@ -28,11 +25,7 @@ import com.hakaton.tim.ejnabavke.async_tasks.RegisterUserAsyncTask;
 
 import org.jdeferred.DoneCallback;
 import org.jdeferred.Promise;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Map;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
@@ -58,14 +51,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         pref = getSharedPreferences(PREFS_NAME,0);
         user = pref.getString("user",user);
         email = pref.getString("email",email);
-
-        if(!(user.isEmpty() || email.isEmpty())) {
-            Intent intent = new Intent(MainActivity.this, MestaActivity.class);
-            startActivity(intent);
-        }
-
-
-
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -133,18 +118,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             acct = result.getSignInAccount();
-            try {
-//                TelephonyManager tMgr = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-//                String mPhoneNumber = tMgr.getLine1Number();
-//                Toast.makeText(getApplicationContext(), mPhoneNumber, Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
             RegisterUserAsyncTask registerUserAsyncTask = new RegisterUserAsyncTask(this, acct);
             Promise<JSONObject, Void, Void> promise = registerUserAsyncTask.getPromise();
             registerUserAsyncTask.execute();
-
-
 
             promise.done(new DoneCallback<JSONObject>() {
                 @Override
@@ -152,11 +129,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     try {
                         user = pref.getString("user", acct.getDisplayName());
                         email = pref.getString("name", acct.getEmail());
-                        Toast.makeText(MainActivity.this, "User ID: " + result.getString("user_id"), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, MestaActivity.class);
+                        Intent intent = new Intent(MainActivity.this, FilterActivity.class);
+                        commitChanges();
                         startActivity(intent);
                         finish();
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }

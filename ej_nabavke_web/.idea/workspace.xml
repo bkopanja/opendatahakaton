@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="359c95cb-69bb-4758-958a-c4b34a65eab7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/rss.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/kategorija.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/mesto.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/nabavka.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/opstina.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/tag.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/vrsta_postupka.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/admin/views/add_tag.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/admin/views/edit_category.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/admin/views/edit_tag.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/admin/views/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/change_email_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/change_password_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/forgot_password_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/general_message.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/login_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/register_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/reset_password_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/send_again_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/auth/unregister_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/activate-html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/activate-txt.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/change_email-html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/change_email-txt.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/forgot_password-html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/forgot_password-txt.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/reset_password-html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/reset_password-txt.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/welcome-html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/email/welcome-txt.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/rss.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/config.php" afterPath="$PROJECT_DIR$/application/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/tank_auth.php" afterPath="$PROJECT_DIR$/application/config/tank_auth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/api_v1.php" afterPath="$PROJECT_DIR$/application/controllers/api_v1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/auth.php" afterPath="$PROJECT_DIR$/application/controllers/auth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/korisnik.php" afterPath="$PROJECT_DIR$/application/models/korisnik.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/admin.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header_logged.php" afterPath="$PROJECT_DIR$/application/views/header_logged.php" />
-    </list>
+    <list default="true" id="359c95cb-69bb-4758-958a-c4b34a65eab7" name="Default" comment="" />
     <ignored path="ej_nabavke_web.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -136,8 +95,8 @@
       <file leaf-file-name="nabavka.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/nabavka.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19817074">
-              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.16768293">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
                 <marker date="1449303537000" expanded="true" signature="96:743" placeholder="SELECT * FRO..nabavke..." />
               </folding>
@@ -435,7 +394,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1128" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1128" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25239617" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -825,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/nabavka.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19817074">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.16768293">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
             <marker date="1449303537000" expanded="true" signature="96:743" placeholder="SELECT * FRO..nabavke..." />
           </folding>

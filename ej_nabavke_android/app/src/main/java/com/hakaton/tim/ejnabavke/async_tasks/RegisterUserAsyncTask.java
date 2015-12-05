@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.hakaton.tim.ejnabavke.util.Constants;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -20,7 +21,7 @@ import org.json.JSONObject;
 public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private String apiUrl = "http://10.120.193.137/opendatahakaton/ej_nabavke_web/api/v1/register_user/";
+    private String apiUrl = Constants.API_ROOT + "register_user/";
 
 
 
@@ -47,7 +48,7 @@ public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
             RequestBody body = RequestBody.create(JSON, joParameters.toString());
             Request request = new Request.Builder()
                 .url(apiUrl)
-                .addHeader("X-API-KEY", "S5622XKZS9AH658SCYRVCCFVLTUMNJD2TZXCS")
+                .addHeader("X-API-KEY", Constants.API_KEY)
                 .addHeader("Content-Type", "application/json")
                 .post(body)
                 .build();
