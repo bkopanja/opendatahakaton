@@ -31,5 +31,7 @@
         <string name="close">Close</string>
     <string name="test123">dsadsasad</string>
     <string name="filterSubTitle">Odaberite gradove i kategorije za javne\nnabavke koje želite da pratite</string>
+    <string name="titleMesta">GRADOVI</string>
+    <string name="titleKategorije">KATEGORIJE</string>
 
 </resources>

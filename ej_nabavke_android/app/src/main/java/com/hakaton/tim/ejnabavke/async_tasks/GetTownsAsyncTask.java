@@ -18,18 +18,17 @@ import org.json.JSONObject;
 /**
  * Created by bojankopanja on 12/5/15.
  */
-public class CitiesAsyncTask extends AsyncTask<String, Void, JSONObject> {
+public class GetTownsAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private String apiUrl = Constants.API_ROOT + "register_user/";
+    private String apiUrl = Constants.API_ROOT + "list_cities";
 
     private DeferredObject<JSONObject, Void, Void> deferredObject;
     private Context context;
     private GoogleSignInAccount account;
 
-    public CitiesAsyncTask(Context context, GoogleSignInAccount account) {
+    public GetTownsAsyncTask(Context context) {
         this.context = context;
-        this.account = account;
         this.deferredObject = new DeferredObject<>();
     }
 
@@ -40,8 +39,6 @@ public class CitiesAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
         JSONObject joParameters = new JSONObject();
         try {
-            joParameters.put("email", account.getEmail());
-            joParameters.put("name", account.getDisplayName());
 
             RequestBody body = RequestBody.create(JSON, joParameters.toString());
             Request request = new Request.Builder()

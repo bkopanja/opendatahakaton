@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="6"
     android:orientation="vertical"
-    tools:context="com.hakaton.tim.ejnabavke.MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
 <LinearLayout
     android:layout_width="wrap_content"

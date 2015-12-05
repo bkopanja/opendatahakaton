@@ -1,9 +1,10 @@
-package com.hakaton.tim.ejnabavke;
+package com.hakaton.tim.ejnabavke.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.util.Constants;
 
 import org.apache.commons.lang3.StringUtils;
