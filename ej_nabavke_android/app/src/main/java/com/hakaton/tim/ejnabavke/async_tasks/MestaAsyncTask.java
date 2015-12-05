@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /**
  * Created by bojankopanja on 12/5/15.
  */
-public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
+public class MestaAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private String apiUrl = "http://10.120.193.137/opendatahakaton/ej_nabavke_web/api/v1/register_user/";
@@ -28,7 +28,7 @@ public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
     private Context context;
     private GoogleSignInAccount account;
 
-    public RegisterUserAsyncTask(Context context, GoogleSignInAccount account) {
+    public MestaAsyncTask(Context context, GoogleSignInAccount account) {
         this.context = context;
         this.account = account;
         this.deferredObject = new DeferredObject<>();
@@ -59,9 +59,7 @@ public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
             e.printStackTrace();
             deferredObject.reject(null);
         }
-
         return null;
-
     }
 
     @Override
