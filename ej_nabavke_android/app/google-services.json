@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_id": "asistentzajavnenabavke",
+    "project_number": "488714888772",
+    "name": "asistentzajavnenabavke"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488714888772:android:588bf1854d46d237",
+        "client_id": "android:com.hakaton.tim.ejnabavke",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.hakaton.tim.ejnabavke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488714888772-4ehs6g6q2g81q8bdv1ba7hnv881n6nmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hakaton.tim.ejnabavke",
+            "certificate_hash": "7BE097965494B1715C7FA87F04A695143A50F005"
+          }
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
