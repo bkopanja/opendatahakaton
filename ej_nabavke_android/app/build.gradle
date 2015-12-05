@@ -29,11 +29,14 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3'
     // apache
     compile 'org.apache.commons:commons-lang3:3.0'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
 
     // material stuff
     compile 'com.afollestad:material-dialogs:0.7.9.1'
     // networking and promises
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'org.jdeferred:jdeferred-core:1.2.4'
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+
 
 }
