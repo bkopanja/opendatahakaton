@@ -1,0 +1,22 @@
+#body-holder {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+form.login {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.content-holder {
+  width: 960px;
+  padding: 0 20px 0 20px;
+}
+
+.top-margin-separator {
+  margin-top: 10px;
+}
+
+.bottom-margin-separator {
+  margin-bottom: 10px;
+}
