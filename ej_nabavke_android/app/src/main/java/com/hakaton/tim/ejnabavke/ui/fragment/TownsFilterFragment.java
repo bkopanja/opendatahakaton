@@ -3,11 +3,13 @@ package com.hakaton.tim.ejnabavke.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,6 +19,7 @@ import com.hakaton.tim.ejnabavke.async_tasks.GetTownsAsyncTask;
 import com.hakaton.tim.ejnabavke.model.CardViewItemInterface;
 import com.hakaton.tim.ejnabavke.model.TownEntity;
 
+import org.jdeferred.AlwaysCallback;
 import org.jdeferred.DoneCallback;
 import org.jdeferred.Promise;
 import org.json.JSONArray;
@@ -36,6 +39,8 @@ public class TownsFilterFragment extends Fragment implements CardViewItemInterfa
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
+    @Bind(R.id.pbLoadingProgress)
+    ProgressBar pbLoadingProgress;
 
     private List<TownEntity> townEntities = new ArrayList<>();
     private TownsAdapter townsAdapter = null;
@@ -63,6 +68,9 @@ public class TownsFilterFragment extends Fragment implements CardViewItemInterfa
         Promise<JSONObject, Void, Void> promise = getTownsAsyncTask.getPromise();
         getTownsAsyncTask.execute();
 
+        pbLoadingProgress.setVisibility(View.VISIBLE);
+        pbLoadingProgress.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(getActivity(), R.color.my_primary), android.graphics.PorterDuff.Mode.MULTIPLY);
+
         promise.done(new DoneCallback<JSONObject>() {
             @Override
             public void onDone(JSONObject result) {
@@ -85,6 +93,12 @@ public class TownsFilterFragment extends Fragment implements CardViewItemInterfa
                 }
 
 
+            }
+        })
+        .always(new AlwaysCallback<JSONObject, Void>() {
+            @Override
+            public void onAlways(Promise.State state, JSONObject resolved, Void rejected) {
+                pbLoadingProgress.setVisibility(View.GONE);
             }
         });
 

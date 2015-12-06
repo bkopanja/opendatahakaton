@@ -2,16 +2,6 @@
     <string name="app_name">Ej Nabavke</string>
     <string name="action_settings">Settings</string>
 
-        <string name="app_id">535569339698</string>
-
-        <string name="leaderboard_id" translatable="false">CgkIsqquk8sPEAIQAQ</string>
-
-        <string name="gamehelper_sign_in_failed" translatable="false">Failed to sign in. Please check your network connection and try again.</string>
-        <string name="gamehelper_app_misconfigured" translatable="false">The application is incorrectly configured. Check that the package name and signing certificate match the client ID created in Developer Console. Also, if the application is not yet published, check that the account you are trying to sign in with is listed as a tester account. See logs for more information.</string>
-        <string name="gamehelper_license_failed" translatable="false">License check failed.</string>
-        <string name="gamehelper_unknown_error" translatable="false">Unknown error.</string>
-        <string name="gamehelper_not_loged_in" translatable="false">Please sign in with Google \nto view leaderboard!</string>
-
         <string name="circles_title">Visible circles:</string>
         <string name="sign_out_button_name">Sign out</string>
         <string name="revoke_access_button_name">Revoke</string>
@@ -32,7 +22,7 @@
     <string name="test123">dsadsasad</string>
     <string name="filterSubTitle">Odaberite gradove i kategorije za javne\nnabavke koje želite da pratite</string>
     <string name="titleMesta">GRADOVI</string>
-    <string name="titleKategorije">KATEGORIJE</string>
+    <string name="titleKategorije">NARUČIOCI</string>
     <string name="actionNext">Dalje</string>
     <string name="activityFiltriranje">Filtriranje</string>
     <string name="activityNotifications">Notifikacije</string>

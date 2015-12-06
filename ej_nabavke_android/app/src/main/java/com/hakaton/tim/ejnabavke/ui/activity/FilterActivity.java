@@ -1,5 +1,6 @@
 package com.hakaton.tim.ejnabavke.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -58,10 +59,9 @@ public class FilterActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-//                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
             case R.id.actionNext:
+                Intent next = new Intent(this, NotificationActivity.class);
+                startActivity(next);
                 return true;
         }
 
