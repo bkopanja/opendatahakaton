@@ -18,7 +18,7 @@
             android:id="@+id/cvMailNotifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="2dp"
             android:background="#FFFFFF"
     >
         <LinearLayout
@@ -86,7 +86,7 @@
                 android:id="@+id/cvMobileNotifications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="2dp"
                 >
                 <LinearLayout
                     android:id="@+id/layoutNotification"
@@ -155,7 +155,7 @@
             android:id="@+id/cvSmsNotifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="2dp"
             >
             <LinearLayout
                 android:id="@+id/layoutSMS"
