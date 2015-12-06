@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.hakaton.tim.ejnabavke.R;
@@ -70,6 +71,8 @@ public class TownsAdapter extends RecyclerView.Adapter<TownsAdapter.ViewHolder> 
             viewHolder.tvTownOffers.setTextColor(Color.WHITE);
         }
 
+        viewHolder.cbCheck.setChecked(town.getSelected());
+
         viewHolder.cvRowHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +98,8 @@ public class TownsAdapter extends RecyclerView.Adapter<TownsAdapter.ViewHolder> 
         TextView tvTownName;
         @Bind(R.id.tvTownOffers)
         TextView tvTownOffers;
+        @Bind(R.id.cbCheck)
+        CheckBox cbCheck;
 
         public ViewHolder(View v) {
             super(v);
