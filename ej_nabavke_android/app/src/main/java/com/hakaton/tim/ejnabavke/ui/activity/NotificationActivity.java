@@ -169,19 +169,6 @@ public class NotificationActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.actionNext:
-                Intent next = new Intent(this, FeedActivity.class);
-                startActivity(next);
-                commitChanges();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     private void commitChanges()
     {
         SharedPreferences dms = getSharedPreferences(Constants.PREFS_NAME, 0);
@@ -194,6 +181,19 @@ public class NotificationActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         editor.commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.actionNext:
+                Intent next = new Intent(this, FeedActivity.class);
+                startActivity(next);
+                commitChanges();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
