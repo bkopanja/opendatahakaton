@@ -15,8 +15,6 @@ import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.model.CardViewItemInterface;
 import com.hakaton.tim.ejnabavke.model.FeedEntity;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -63,11 +61,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         viewHolder.tvTownName.setText(feedEntity.getNaziv_dokumenta());
 
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
-            SimpleDateFormat sdf2 = new SimpleDateFormat("dd. MMMM yy");
-
-            Date date = sdf.parse(feedEntity.getDatum_poslednje_izmene());
-            viewHolder.tvTownOffers.setText(sdf2.format(date));
+            viewHolder.tvTownOffers.setText(feedEntity.getFormattedDate());
         } catch (Exception e) {
             e.printStackTrace();
         }

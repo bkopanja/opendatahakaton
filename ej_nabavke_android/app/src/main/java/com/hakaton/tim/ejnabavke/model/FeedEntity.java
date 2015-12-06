@@ -1,6 +1,8 @@
 package com.hakaton.tim.ejnabavke.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by bojankopanja on 12/6/15.
@@ -132,6 +134,18 @@ public class FeedEntity implements Serializable {
 
     public void setKategorija_id(Integer kategorija_id) {
         this.kategorija_id = kategorija_id;
+    }
+
+    public String getFormattedDate() {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:MM:ss");
+            SimpleDateFormat sdf2 = new SimpleDateFormat("dd. MMMM yy");
+
+            Date date = sdf.parse(getDatum_poslednje_izmene());
+            return sdf2.format(date);
+        } catch (Exception e) {
+            return "";
+        }
     }
 
     @Override

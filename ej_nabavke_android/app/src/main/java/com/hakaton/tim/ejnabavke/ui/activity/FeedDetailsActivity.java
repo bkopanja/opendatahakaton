@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.model.FeedEntity;
@@ -15,6 +16,12 @@ import butterknife.ButterKnife;
 public class FeedDetailsActivity extends AppCompatActivity {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    @Bind(R.id.tvDatum)
+    TextView tvDatum;
+    @Bind(R.id.tvTitle)
+    TextView tvTitle;
+
+    private FeedEntity feed = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,24 +29,21 @@ public class FeedDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed_details);
         ButterKnife.bind(this);
 
-        FeedEntity feed = (FeedEntity) getIntent().getSerializableExtra("feedDetail");
-        if(feed != null) {
-            if (toolbar != null) {
+        feed = (FeedEntity) getIntent().getSerializableExtra("feedDetail");
+        if (toolbar != null) {
 
-                setSupportActionBar(toolbar);
-                setTitle(feed.getNaziv_dokumenta());
+            setSupportActionBar(toolbar);
+            setTitle(feed.getNaziv_dokumenta());
 
-                // Show menu icon
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setHomeAsUpIndicator(R.mipmap.ic_back);
-                    actionBar.setDisplayHomeAsUpEnabled(true);
-                    actionBar.setShowHideAnimationEnabled(true);
-                }
+            // Show menu icon
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setHomeAsUpIndicator(R.mipmap.ic_back);
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setShowHideAnimationEnabled(true);
             }
-
-            setFeedUI();
         }
+        setFeedUI();
 
     }
 
@@ -54,6 +58,12 @@ public class FeedDetailsActivity extends AppCompatActivity {
     }
 
     public void setFeedUI() {
+        if(feed != null) {
+
+            tvDatum.setText(feed.getFormattedDate());
+            tvTitle.setText(feed.getNaziv_dokumenta());
+
+        }
 
     }
 
