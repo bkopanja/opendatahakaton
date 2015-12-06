@@ -25,13 +25,13 @@ import butterknife.ButterKnife;
 /**
  * Created by bojankopanja on 12/5/15.
  */
-public class CategoryFilterFragment extends Fragment {
+public class NotificationFilterFragment extends Fragment {
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    public static CategoryFilterFragment newInstance() {
-        CategoryFilterFragment fragment = new CategoryFilterFragment();
+    public static NotificationFilterFragment newInstance() {
+        NotificationFilterFragment fragment = new NotificationFilterFragment();
         return fragment;
     }
 
@@ -44,7 +44,7 @@ public class CategoryFilterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_categories_filter, container, false);
+        View view = inflater.inflate(R.layout.fragment_notification_filter, container, false);
         ButterKnife.bind(this, view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
