@@ -41,9 +41,7 @@ public class CategoryFilterFragment extends Fragment implements CardViewItemInte
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
-    @Bind(R.id.pbLoadingProgress)
-    ProgressBar pbLoadingProgress;
-
+    
     private List<CategoryEntity> townEntities = new ArrayList<>();
     private CategoryAdapter townsAdapter = null;
 
