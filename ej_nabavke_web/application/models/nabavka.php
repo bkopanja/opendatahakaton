@@ -15,4 +15,9 @@ class nabavka extends CI_Model {
         return $this->db->query($str);
     }
 
+    function getFeed() {
+        $str = "SELECT * FROM nabavke ORDER BY datum_poslednje_izmene DESC";
+        return $this->db->query($str)->result_object();
+    }
+
 }
