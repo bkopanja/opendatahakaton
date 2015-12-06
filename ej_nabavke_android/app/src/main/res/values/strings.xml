@@ -26,5 +26,6 @@
     <string name="actionNext">Dalje</string>
     <string name="activityFiltriranje">Filtriranje</string>
     <string name="activityNotifications">Notifikacije</string>
+    <string name="activityFeed">Ej Nabavke</string>
 
 </resources>
