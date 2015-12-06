@@ -22,19 +22,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:textSize="16sp"/>
-    <LinearLayout
-        android:id="@+id/btnNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_right"
-            android:layout_gravity="right"/>
-
-    </LinearLayout>
 
     </RelativeLayout>
 

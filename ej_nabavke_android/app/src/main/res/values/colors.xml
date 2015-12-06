@@ -3,4 +3,5 @@
 
     <color name="my_primary">#00BBD3</color>
     <color name="my_primary_dark">#0096A6</color>
+    <color name="my_card_background">#F7F7F7</color>
 </resources>

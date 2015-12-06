@@ -33,5 +33,8 @@
     <string name="filterSubTitle">Odaberite gradove i kategorije za javne\nnabavke koje želite da pratite</string>
     <string name="titleMesta">GRADOVI</string>
     <string name="titleKategorije">KATEGORIJE</string>
+    <string name="actionNext">Dalje</string>
+    <string name="activityFiltriranje">Filtriranje</string>
+    <string name="activityNotifications">Notifikacije</string>
 
 </resources>

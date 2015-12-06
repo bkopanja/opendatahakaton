@@ -9,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.adapters.TownsAdapter;
 import com.hakaton.tim.ejnabavke.async_tasks.GetTownsAsyncTask;
+import com.hakaton.tim.ejnabavke.model.CardViewItemInterface;
+import com.hakaton.tim.ejnabavke.model.TownEntity;
 
 import org.jdeferred.DoneCallback;
 import org.jdeferred.Promise;
@@ -19,16 +23,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by bojankopanja on 12/5/15.
  */
-public class TownsFilterFragment extends Fragment {
+public class TownsFilterFragment extends Fragment implements CardViewItemInterface {
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
+
+    private List<TownEntity> townEntities = new ArrayList<>();
+    private TownsAdapter townsAdapter = null;
 
     public static TownsFilterFragment newInstance() {
         TownsFilterFragment fragment = new TownsFilterFragment();
@@ -58,8 +68,17 @@ public class TownsFilterFragment extends Fragment {
             public void onDone(JSONObject result) {
                 try {
                     JSONArray towns = result.getJSONArray("mesta");
-                    TownsAdapter adapter = new TownsAdapter(getActivity(), towns);
-                    recyclerView.setAdapter(adapter);
+                    Gson gsonBuilder = new GsonBuilder().create();
+                    townEntities = new ArrayList<>();
+
+                    for(int i = 0 ; i < towns.length(); i++) {
+                        String town = towns.getJSONObject(i).toString();
+                        townEntities.add(gsonBuilder.fromJson(town, TownEntity.class));
+                    }
+
+
+                    townsAdapter = new TownsAdapter(getActivity(), townEntities, TownsFilterFragment.this);
+                    recyclerView.setAdapter(townsAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -69,9 +88,13 @@ public class TownsFilterFragment extends Fragment {
             }
         });
 
-
         return view;
     }
 
 
+    @Override
+    public void OnClick(int position) {
+        townEntities.get(position).setSelected(!townEntities.get(position).getSelected());
+        townsAdapter.setData(townEntities);
+    }
 }

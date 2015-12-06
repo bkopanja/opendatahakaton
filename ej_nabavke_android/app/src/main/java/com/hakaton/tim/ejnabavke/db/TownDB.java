@@ -5,6 +5,6 @@ import com.activeandroid.Model;
 /**
  * Created by KDragan on 5.12.2015.
  */
-public class CityDB extends Model {
+public class TownDB extends Model {
 
 }
