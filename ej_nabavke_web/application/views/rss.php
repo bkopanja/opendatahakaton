@@ -17,7 +17,7 @@
         <dc:creator><?php echo $creator_email; ?></dc:creator>
 
         <dc:rights>Copyright <?php echo gmdate("Y", time()); ?></dc:rights>
-        <admin:generatorAgent rdf:resource="http://www.codeigniter.com/" />
+        <admin:generatorAgent rdf:resource="http://www.bojankopanja.com/" />
 
         <?php foreach($posts->result() as $post): ?>
 

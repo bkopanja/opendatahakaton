@@ -108,4 +108,16 @@ class api_v1 extends REST_Controller {
         $this->response($envelope, 200);
     }
 
+    function get_feed_post() {
+        $this->load->model('nabavka');
+
+        $feed = $this->nabavka->getFeed();
+
+        $envelope = new stdClass;
+        $envelope->feed = $feed;
+        $envelope->info = "Copyright © 2015 Ej Nabavke";
+
+        $this->response($envelope, 200);
+    }
+
 }
