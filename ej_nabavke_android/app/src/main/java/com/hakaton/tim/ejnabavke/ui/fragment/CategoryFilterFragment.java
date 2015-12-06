@@ -15,11 +15,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.adapters.CategoryAdapter;
-import com.hakaton.tim.ejnabavke.adapters.TownsAdapter;
 import com.hakaton.tim.ejnabavke.async_tasks.GetTownsAsyncTask;
 import com.hakaton.tim.ejnabavke.model.CardViewItemInterface;
 import com.hakaton.tim.ejnabavke.model.CategoryEntity;
-import com.hakaton.tim.ejnabavke.model.TownEntity;
 
 import org.jdeferred.AlwaysCallback;
 import org.jdeferred.DoneCallback;
@@ -41,7 +39,9 @@ public class CategoryFilterFragment extends Fragment implements CardViewItemInte
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
-    
+    @Bind(R.id.pbLoadingProgress)
+    ProgressBar pbLoadingProgress;
+
     private List<CategoryEntity> townEntities = new ArrayList<>();
     private CategoryAdapter townsAdapter = null;
 
