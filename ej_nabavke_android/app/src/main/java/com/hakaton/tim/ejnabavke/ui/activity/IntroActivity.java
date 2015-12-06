@@ -28,13 +28,13 @@ public class IntroActivity extends AppCompatActivity {
         Timer introTimer = new Timer();
         introTimer.schedule(new TimerTask() {
             public void run() {
-                if(StringUtils.isNotBlank(user) && StringUtils.isNotBlank(email)) {
+              //  if(StringUtils.isNotBlank(user) && StringUtils.isNotBlank(email)) {
                     Intent intent = new Intent(IntroActivity.this, FilterActivity.class);
                     startActivity(intent);
-                } else {
-                    Intent intent = new Intent(IntroActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
+           //     } else {
+//                    Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+//                    startActivity(intent);
+//                }
 
                 finish();
             }
