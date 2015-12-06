@@ -36,6 +36,136 @@
                 android:textColor="@android:color/black"
                 android:text="adsdadada\nasdasdasdasdasd\ndfsdfsdfsdf"/>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:id="@+id/tvUgovor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DA"
+                    android:textColor="@color/my_primary"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obaveštenje o zaključnom ugovoru:"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@android:color/black"
+                    android:layout_toLeftOf="@id/tvUgovor"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/my_primary"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/tvObustava"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DA"
+                    android:textColor="@color/my_primary"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="16dp"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obaveštenje o obustavi postupka Javne Nabavke:"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@android:color/black"
+                    android:singleLine="true"
+                    android:layout_toLeftOf="@id/tvObustava"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/my_primary"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/tvPregovaracki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DA"
+                    android:textColor="@color/my_primary"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pregovarčki bez ponuda:"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@android:color/black"
+                    android:layout_toLeftOf="@id/tvPregovaracki"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/my_primary"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/tvPrava"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DA"
+                    android:textColor="@color/my_primary"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obaveštenje o zaštiti prava:"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@android:color/black"
+                    android:layout_toLeftOf="@id/tvPrava"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/my_primary"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 
