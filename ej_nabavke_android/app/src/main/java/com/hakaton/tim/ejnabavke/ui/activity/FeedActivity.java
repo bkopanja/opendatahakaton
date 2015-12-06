@@ -63,6 +63,7 @@ public class FeedActivity extends AppCompatActivity implements CardViewItemInter
             }
         }
 
+
         pbFeedProgress.setVisibility(View.VISIBLE);
         pbFeedProgress.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.my_primary), android.graphics.PorterDuff.Mode.MULTIPLY);
 
