@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /**
  * Created by bojankopanja on 12/5/15.
  */
-public class GetCategoryAsyncTask extends AsyncTask<String, Void, JSONObject> {
+public class GetCategoriesAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private String apiUrl = Constants.API_ROOT + "list_category";
@@ -27,7 +27,7 @@ public class GetCategoryAsyncTask extends AsyncTask<String, Void, JSONObject> {
     private Context context;
     private GoogleSignInAccount account;
 
-    public GetCategoryAsyncTask(Context context) {
+    public GetCategoriesAsyncTask(Context context) {
         this.context = context;
         this.deferredObject = new DeferredObject<>();
     }
