@@ -48,7 +48,7 @@ public class TownsAdapter extends RecyclerView.Adapter<TownsAdapter.ViewHolder> 
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.text_row_item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.town_row_item, viewGroup, false);
         return new ViewHolder(v);
     }
 
@@ -68,7 +68,7 @@ public class TownsAdapter extends RecyclerView.Adapter<TownsAdapter.ViewHolder> 
                 e.printStackTrace();
             }
             viewHolder.tvTownName.setTextColor(Color.BLACK);
-            viewHolder.tvTownOffers.setTextColor(Color.BLACK);
+            viewHolder.tvTownOffers.setTextColor(ContextCompat.getColor(context, R.color.my_card_subtext));
         } else {
             try {
                 viewHolder.cvRowHolder.setBackgroundColor(ContextCompat.getColor(context, R.color.my_primary));
@@ -76,7 +76,7 @@ public class TownsAdapter extends RecyclerView.Adapter<TownsAdapter.ViewHolder> 
                 e.printStackTrace();
             }
             viewHolder.tvTownName.setTextColor(Color.WHITE);
-            viewHolder.tvTownOffers.setTextColor(Color.WHITE);
+            viewHolder.tvTownOffers.setTextColor(ContextCompat.getColor(context, R.color.my_card_subtext_active));
         }
 
         viewHolder.cbCheck.setChecked(town.getSelected());

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class GetCategoriesAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private String apiUrl = Constants.API_ROOT + "list_category";
+    private String apiUrl = Constants.API_ROOT + "list_categories";
 
     private DeferredObject<JSONObject, Void, Void> deferredObject;
     private Context context;

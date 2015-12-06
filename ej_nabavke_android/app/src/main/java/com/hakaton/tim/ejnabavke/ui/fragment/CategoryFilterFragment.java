@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.adapters.CategoryAdapter;
-import com.hakaton.tim.ejnabavke.async_tasks.GetTownsAsyncTask;
+import com.hakaton.tim.ejnabavke.async_tasks.GetCategoriesAsyncTask;
 import com.hakaton.tim.ejnabavke.model.CardViewItemInterface;
 import com.hakaton.tim.ejnabavke.model.CategoryEntity;
 
@@ -42,8 +42,8 @@ public class CategoryFilterFragment extends Fragment implements CardViewItemInte
     @Bind(R.id.pbLoadingProgress)
     ProgressBar pbLoadingProgress;
 
-    private List<CategoryEntity> townEntities = new ArrayList<>();
-    private CategoryAdapter townsAdapter = null;
+    private List<CategoryEntity> categoryEntities = new ArrayList<>();
+    private CategoryAdapter categoryAdapter = null;
 
     public static CategoryFilterFragment newInstance() {
         CategoryFilterFragment fragment = new CategoryFilterFragment();
@@ -64,9 +64,9 @@ public class CategoryFilterFragment extends Fragment implements CardViewItemInte
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        GetTownsAsyncTask getTownsAsyncTask = new GetTownsAsyncTask(getActivity());
-        Promise<JSONObject, Void, Void> promise = getTownsAsyncTask.getPromise();
-        getTownsAsyncTask.execute();
+        GetCategoriesAsyncTask getCategoriesAsyncTask = new GetCategoriesAsyncTask(getActivity());
+        Promise<JSONObject, Void, Void> promise = getCategoriesAsyncTask.getPromise();
+        getCategoriesAsyncTask.execute();
 
         pbLoadingProgress.setVisibility(View.VISIBLE);
         pbLoadingProgress.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(getActivity(), R.color.my_primary), android.graphics.PorterDuff.Mode.MULTIPLY);
@@ -75,17 +75,17 @@ public class CategoryFilterFragment extends Fragment implements CardViewItemInte
             @Override
             public void onDone(JSONObject result) {
                 try {
-                    JSONArray towns = result.getJSONArray("kategorije");
+                    JSONArray categories = result.getJSONArray("kategorije");
                     Gson gsonBuilder = new GsonBuilder().create();
-                    townEntities = new ArrayList<>();
+                    categoryEntities = new ArrayList<>();
 
-                    for(int i = 0 ; i < towns.length(); i++) {
-                        String town = towns.getJSONObject(i).toString();
-                        townEntities.add(gsonBuilder.fromJson(town, CategoryEntity.class));
+                    for(int i = 0 ; i < categories.length(); i++) {
+                        String town = categories.getJSONObject(i).toString();
+                        categoryEntities.add(gsonBuilder.fromJson(town, CategoryEntity.class));
                     }
 
-                    townsAdapter = new CategoryAdapter(getActivity(), townEntities, CategoryFilterFragment.this);
-                    recyclerView.setAdapter(townsAdapter);
+                    categoryAdapter = new CategoryAdapter(getActivity(), categoryEntities, CategoryFilterFragment.this);
+                    recyclerView.setAdapter(categoryAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -104,10 +104,9 @@ public class CategoryFilterFragment extends Fragment implements CardViewItemInte
         return view;
     }
 
-
     public void OnClick(int position) {
-        townEntities.get(position).setSelected(!townEntities.get(position).getSelected());
-        townsAdapter.setData(townEntities);
+        categoryEntities.get(position).setSelected(!categoryEntities.get(position).getSelected());
+        categoryAdapter.setData(categoryEntities);
     }
 
 }

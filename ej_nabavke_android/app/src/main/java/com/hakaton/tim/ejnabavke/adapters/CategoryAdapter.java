@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.hakaton.tim.ejnabavke.R;
 import com.hakaton.tim.ejnabavke.model.CardViewItemInterface;
 import com.hakaton.tim.ejnabavke.model.CategoryEntity;
-import com.hakaton.tim.ejnabavke.model.TownEntity;
 
 import java.util.List;
 
@@ -49,7 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.text_row_item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_row_item, viewGroup, false);
         return new ViewHolder(v);
     }
 
