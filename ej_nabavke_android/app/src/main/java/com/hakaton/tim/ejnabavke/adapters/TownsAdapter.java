@@ -62,11 +62,19 @@ public class TownsAdapter extends RecyclerView.Adapter<TownsAdapter.ViewHolder> 
         viewHolder.tvTownOffers.setText("Nabavki: " + town.getBroj_nabavki());
 
         if(!town.getSelected()) {
-            viewHolder.cvRowHolder.setBackgroundColor(ContextCompat.getColor(context, R.color.my_card_background));
+            try {
+                viewHolder.cvRowHolder.setBackgroundColor(ContextCompat.getColor(context, R.color.my_card_background));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             viewHolder.tvTownName.setTextColor(Color.BLACK);
             viewHolder.tvTownOffers.setTextColor(Color.BLACK);
         } else {
-            viewHolder.cvRowHolder.setBackgroundColor(ContextCompat.getColor(context, R.color.my_primary));
+            try {
+                viewHolder.cvRowHolder.setBackgroundColor(ContextCompat.getColor(context, R.color.my_primary));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             viewHolder.tvTownName.setTextColor(Color.WHITE);
             viewHolder.tvTownOffers.setTextColor(Color.WHITE);
         }
