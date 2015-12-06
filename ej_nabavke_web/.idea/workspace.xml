@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="359c95cb-69bb-4758-958a-c4b34a65eab7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ej_nabavke_android/app/src/main/java/com/hakaton/tim/ejnabavke/async_tasks/GetFeedsAsyncTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/api_v1.php" afterPath="$PROJECT_DIR$/application/controllers/api_v1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/nabavka.php" afterPath="$PROJECT_DIR$/application/models/nabavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/rss.php" afterPath="$PROJECT_DIR$/application/views/rss.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/rss.php" afterPath="$PROJECT_DIR$/application/controllers/rss.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/logs/log-2015-12-06.php" afterPath="$PROJECT_DIR$/application/logs/log-2015-12-06.php" />
     </list>
     <ignored path="ej_nabavke_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +58,7 @@
       <file leaf-file-name="api_v1.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/api_v1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.208334">
+            <state vertical-scroll-proportion="-63.125">
               <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
               <folding />
             </state>
@@ -77,10 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nabavka.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rss.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/rss.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.030425964">
+              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nabavka.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/nabavka.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28904665">
+            <state vertical-scroll-proportion="-11.875">
               <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
               <folding>
                 <marker date="1449397921000" expanded="true" signature="96:743" placeholder="SELECT * FRO..nabavke..." />
@@ -130,10 +138,10 @@
         <option value="$PROJECT_DIR$/application/views/header_logged.php" />
         <option value="$PROJECT_DIR$/application/views/header.php" />
         <option value="$PROJECT_DIR$/application/models/mesto.php" />
-        <option value="$PROJECT_DIR$/application/controllers/rss.php" />
         <option value="$PROJECT_DIR$/application/views/rss.php" />
         <option value="$PROJECT_DIR$/application/controllers/api_v1.php" />
         <option value="$PROJECT_DIR$/application/models/nabavka.php" />
+        <option value="$PROJECT_DIR$/application/controllers/rss.php" />
       </list>
     </option>
   </component>
@@ -339,9 +347,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/controllers" />
       <recent name="$PROJECT_DIR$/application/views" />
       <recent name="$PROJECT_DIR$/application/models" />
-      <recent name="$PROJECT_DIR$/application/controllers" />
       <recent name="$PROJECT_DIR$/application/modules/admin/views" />
       <recent name="$PROJECT_DIR$/application/views/email" />
     </key>
@@ -757,26 +765,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/rss.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28904665">
-          <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46754563">
           <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/api_v1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.208334">
-          <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -793,12 +785,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/nabavka.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28904665">
+        <state vertical-scroll-proportion="-11.875">
           <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
           <folding>
             <marker date="1449397921000" expanded="true" signature="96:743" placeholder="SELECT * FRO..nabavke..." />
             <marker date="1449397921000" expanded="true" signature="833:891" placeholder="SELECT * FRO..nabavke..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/api_v1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-63.125">
+          <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/rss.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030425964">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

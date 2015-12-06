@@ -5,7 +5,6 @@ class rss extends MX_Controller {
     function __construct() {
 
         $this->load->helper('xml');
-        $this->load->helper('security');
         $this->load->model('nabavka');
     }
 
