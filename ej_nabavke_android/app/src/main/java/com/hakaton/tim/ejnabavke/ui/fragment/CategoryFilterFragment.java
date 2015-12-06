@@ -8,8 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.hakaton.tim.ejnabavke.R;
+import com.hakaton.tim.ejnabavke.adapters.CategoryAdapter;
+import com.hakaton.tim.ejnabavke.adapters.TownsAdapter;
+import com.hakaton.tim.ejnabavke.model.CategoryEntity;
+import com.hakaton.tim.ejnabavke.model.TownEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,6 +29,11 @@ public class CategoryFilterFragment extends Fragment {
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
+    @Bind(R.id.pbLoadingProgress)
+    ProgressBar pbLoadingProgress;
+
+    private List<CategoryEntity> townEntities = new ArrayList<>();
+    private CategoryAdapter townsAdapter = null;
 
     public static CategoryFilterFragment newInstance() {
         CategoryFilterFragment fragment = new CategoryFilterFragment();
