@@ -60,9 +60,6 @@ public class FilterActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.actionNext:
                 Intent next = new Intent(this, NotificationActivity.class);
-
-
-
                 startActivity(next);
                 return true;
         }
