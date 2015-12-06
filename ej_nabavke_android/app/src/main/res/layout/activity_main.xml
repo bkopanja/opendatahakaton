@@ -34,7 +34,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="    SIGN UP WITH GMAIL    "
+        android:text="    PRIJAVITE SE SA GMAIL NALOGOM    "
+        android:textColor="#FFFFFF"
+        android:background="#00BBD3"/>
+
+    <Button
+        android:id="@+id/proceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="    NASTAVITE DALJE BEZ PRIJAVE    "
         android:textColor="#FFFFFF"
         android:background="#00BBD3"/>
 

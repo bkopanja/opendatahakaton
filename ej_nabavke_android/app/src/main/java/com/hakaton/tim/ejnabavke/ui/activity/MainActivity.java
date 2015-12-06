@@ -58,6 +58,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 .build();
 
         Button signInButton = (Button) findViewById(R.id.sign_in_button);
+        Button proceed = (Button) findViewById(R.id.proceed);
+
+        proceed.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FilterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         findViewById(R.id.sign_in_button).setOnClickListener(new OnClickListener() {
             @Override
