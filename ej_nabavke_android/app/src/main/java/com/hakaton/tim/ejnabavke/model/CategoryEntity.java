@@ -35,7 +35,7 @@ public class CategoryEntity {
 
     @Override
     public String toString() {
-        return "TownEntity{" +
+        return "CategoryEntity{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
                 ", selected=" + selected +
