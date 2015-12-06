@@ -21,6 +21,15 @@ public class FeedDetailsActivity extends AppCompatActivity {
     @Bind(R.id.tvTitle)
     TextView tvTitle;
 
+    @Bind(R.id.tvUgovor)
+    TextView tvUgovor;
+    @Bind(R.id.tvObustava)
+    TextView tvObustava;
+    @Bind(R.id.tvPregovaracki)
+    TextView tvPregovaracki;
+    @Bind(R.id.tvPrava)
+    TextView tvPrava;
+
     private FeedEntity feed = null;
 
     @Override
@@ -62,6 +71,11 @@ public class FeedDetailsActivity extends AppCompatActivity {
 
             tvDatum.setText(feed.getFormattedDate());
             tvTitle.setText(feed.getNaziv_dokumenta());
+
+            tvUgovor.setText(feed.getObavestenje_o_zakljucenom_ugovoru() > 0 ? "DA" : "NE");
+            tvObustava.setText(feed.getObavestenje_o_obustavi_postupka_javne_nabavke() > 0 ? "DA" : "NE");
+            tvPregovaracki.setText(feed.getPregovaracki_bez_ponuda() > 0 ? "DA" : "NE");
+            tvPrava.setText(feed.getObavestenje_o_zastiti_prava() > 0 ? "DA" : "NE");
 
         }
 
