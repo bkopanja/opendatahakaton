@@ -58,7 +58,6 @@ public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
             return new JSONObject(responseString);
         } catch (Exception e) {
             e.printStackTrace();
-            deferredObject.reject(null);
         }
 
         return null;
@@ -71,7 +70,9 @@ public class RegisterUserAsyncTask extends AsyncTask<String, Void, JSONObject> {
             deferredObject.resolve(jsonObject);
         } else {
             try {
-                deferredObject.reject(null);
+                if(!deferredObject.isRejected()) {
+                    deferredObject.reject(null);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
