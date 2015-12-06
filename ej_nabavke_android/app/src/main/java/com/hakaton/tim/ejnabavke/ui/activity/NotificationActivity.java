@@ -2,23 +2,16 @@ package com.hakaton.tim.ejnabavke.ui.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 
 import com.hakaton.tim.ejnabavke.R;
-import com.hakaton.tim.ejnabavke.adapters.FilterAdapter;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class NotificationActivity extends AppCompatActivity {
 
-    @Bind(R.id.pager)
-    ViewPager mPager;
     private CardView cvMail, cvSMS, cvNotification;
     private CheckBox cbMail, cbSMS, cbNotification;
 
@@ -27,7 +20,11 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        //ButterKnife.bind(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
 
         cvMail = (CardView)findViewById(R.id.cvMailNotifications);
         cvSMS = (CardView)findViewById(R.id.cvSmsNotifications);
